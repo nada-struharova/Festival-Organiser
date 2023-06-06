@@ -20,7 +20,6 @@
 		F79DC4092A2F4F3A00DB0895 /* FestivalDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */; };
 		F79DC40C2A2F4F3A00DB0895 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4072A2F4F3A00DB0895 /* Festival.swift */; };
 		F79DC40F2A2F4F3A00DB0895 /* FestivalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */; };
-<<<<<<< HEAD
 		F79DC4132A2F6A3E00DB0895 /* FestivalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */; };
 		F79DC4172A2F6AE500DB0895 /* FestivalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */; };
 		F79DC4182A2F6AE500DB0895 /* FestivalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */; };
@@ -28,8 +27,6 @@
 		F79DC41F2A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4202A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4212A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
-=======
->>>>>>> postgresDriver
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,16 +121,13 @@
 			children = (
 				F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */,
 				F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */,
-<<<<<<< HEAD
 				F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */,
 				F79DC4072A2F4F3A00DB0895 /* Festival.swift */,
 				F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */,
 				F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */,
 				F79DC41E2A2F772000DB0895 /* FestivalRow.swift */,
-=======
 				F79DC4072A2F4F3A00DB0895 /* Festival.swift */,
 				F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */,
->>>>>>> postgresDriver
 				F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */,
 				F79DC3E02A2F4F2700DB0895 /* Assets.xcassets */,
 				F79DC3E22A2F4F2700DB0895 /* Preview Content */,
@@ -305,20 +299,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79DC4092A2F4F3A00DB0895 /* FestivalDetailModel.swift in Sources */,
-<<<<<<< HEAD
-=======
 				2B2B9A5B2A2F5F0300AE2336 /* PostgreSQLDriver.swift in Sources */,
 				2B2B9A602A2F60E200AE2336 /* DatabaseDriver.swift in Sources */,
->>>>>>> postgresDriver
 				F79DC3DF2A2F4F2600DB0895 /* ContentView.swift in Sources */,
 				F79DC41F2A2F772000DB0895 /* FestivalRow.swift in Sources */,
 				F79DC3DD2A2F4F2600DB0895 /* OrganizerApp.swift in Sources */,
 				F79DC40F2A2F4F3A00DB0895 /* FestivalDetail.swift in Sources */,
-<<<<<<< HEAD
 				F79DC4132A2F6A3E00DB0895 /* FestivalList.swift in Sources */,
 				F79DC4172A2F6AE500DB0895 /* FestivalDataService.swift in Sources */,
-=======
->>>>>>> postgresDriver
 				F79DC40C2A2F4F3A00DB0895 /* Festival.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,11 +316,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F79DC3EE2A2F4F2700DB0895 /* OrganizerTests.swift in Sources */,
-<<<<<<< HEAD
 				F79DC4202A2F772000DB0895 /* FestivalRow.swift in Sources */,
 				F79DC4182A2F6AE500DB0895 /* FestivalDataService.swift in Sources */,
-=======
->>>>>>> postgresDriver
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,11 +327,8 @@
 			files = (
 				F79DC3FA2A2F4F2700DB0895 /* OrganizerUITestsLaunchTests.swift in Sources */,
 				F79DC3F82A2F4F2700DB0895 /* OrganizerUITests.swift in Sources */,
-<<<<<<< HEAD
 				F79DC4212A2F772000DB0895 /* FestivalRow.swift in Sources */,
 				F79DC4192A2F6AE500DB0895 /* FestivalDataService.swift in Sources */,
-=======
->>>>>>> postgresDriver
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
