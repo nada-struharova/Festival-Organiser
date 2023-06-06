@@ -15,7 +15,7 @@ struct FestivalRow: View {
         
     var body : some View {
         HStack {
-            Text(festival.displayName)
+            Text(festival.displayName ?? "Unknown")
             Spacer()
         }
     }

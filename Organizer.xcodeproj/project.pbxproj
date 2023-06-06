@@ -27,6 +27,8 @@
 		F79DC41F2A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4202A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4212A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
+		F7EB8C882A2FC53F002F2E0F /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */; };
+		F7EB8C892A2FC53F002F2E0F /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,7 @@
 		F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalList.swift; sourceTree = "<group>"; };
 		F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDataService.swift; sourceTree = "<group>"; };
 		F79DC41E2A2F772000DB0895 /* FestivalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalRow.swift; sourceTree = "<group>"; };
+		F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrefsSQL.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +122,6 @@
 				F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */,
 				F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */,
 				F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */,
-				F79DC4072A2F4F3A00DB0895 /* Festival.swift */,
-				F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */,
 				F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */,
 				F79DC41E2A2F772000DB0895 /* FestivalRow.swift */,
 				F79DC4072A2F4F3A00DB0895 /* Festival.swift */,
@@ -130,6 +131,7 @@
 				F79DC3E22A2F4F2700DB0895 /* Preview Content */,
 				2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */,
 				2B2B9A5F2A2F60E200AE2336 /* DatabaseDriver.swift */,
+				F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */,
 			);
 			path = Organizer;
 			sourceTree = "<group>";
@@ -271,6 +273,7 @@
 			files = (
 				F79DC3E42A2F4F2700DB0895 /* Preview Assets.xcassets in Resources */,
 				F79DC3E12A2F4F2700DB0895 /* Assets.xcassets in Resources */,
+				F7EB8C882A2FC53F002F2E0F /* PrefsSQL.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,6 +281,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7EB8C892A2FC53F002F2E0F /* PrefsSQL.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

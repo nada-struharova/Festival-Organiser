@@ -8,15 +8,9 @@
 import Foundation
 import CoreLocation
 
-<<<<<<< HEAD
 struct Festival: Identifiable {
     var id: Int
-    var displayName: String
-=======
-struct Festival {
-    let id: Int
     var displayName: String?
->>>>>>> postgresDriver
     var centreLat: Double
     var centreLong: Double
     var height: Double
@@ -24,8 +18,4 @@ struct Festival {
     var stages: [String : CLLocationCoordinate2D]
     var toilets: [CLLocationCoordinate2D]?
     var waters: [CLLocationCoordinate2D]?
-<<<<<<< HEAD
-=======
-    
->>>>>>> postgresDriver
 }
