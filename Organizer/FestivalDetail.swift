@@ -8,12 +8,18 @@
 import SwiftUI
 import MapKit
 
+<<<<<<< HEAD
 struct FestivalDetail: View {
     
     var festival: Festival
     
     @EnvironmentObject private var detailModel: FestivalDetailModel
     
+=======
+struct FestivalDetail {
+    
+    @EnvironmentObject private var vm: FestivalDetailModel
+>>>>>>> postgresDriver
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 51.520627,
                                        longitude: -0.101602),
@@ -24,6 +30,7 @@ struct FestivalDetail: View {
         ZStack {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
+<<<<<<< HEAD
                 .onAppear {
                     setRegion(CLLocationCoordinate2D(latitude: festival.centreLat, longitude: festival.centreLong))
                 }
@@ -39,6 +46,15 @@ struct FestivalDetail: View {
 struct FestivalView_Previews: PreviewProvider {
     static var previews: some View {
         FestivalDetail(festival: FestivalDataService().festivals[1])
+=======
+        }
+    }
+}
+
+struct FestivalDetail_Previews: PreviewProvider {
+    static var previews: some View {
+        FestivalDetail()
+>>>>>>> postgresDriver
             .body.environmentObject(FestivalDetailModel())
     }
 }
