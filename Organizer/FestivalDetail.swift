@@ -1,5 +1,5 @@
 //
-//  FestivalView.swift
+//  FestivalDetail.swift
 //  Organizer
 //
 //  Created by Nada Struharova on 6/6/23.
@@ -8,9 +8,9 @@
 import SwiftUI
 import MapKit
 
-struct FestivalView {
+struct FestivalDetail {
     
-    @EnvironmentObject private var vm: FestivalViewModel
+    @EnvironmentObject private var vm: FestivalDetailModel
     @State private var region = MKCoordinateRegion(
         center: CLLocationCoordinate2D(latitude: 51.520627,
                                        longitude: -0.101602),
@@ -25,9 +25,9 @@ struct FestivalView {
     }
 }
 
-struct FestivalView_Previews: PreviewProvider {
+struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
         FestivalView()
-            .body.environmentObject(FestivalViewModel())
+            .body.environmentObject(FestivalDetailModel())
     }
 }

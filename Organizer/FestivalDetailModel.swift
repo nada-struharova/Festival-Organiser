@@ -1,5 +1,5 @@
 //
-//  FestivalViewModel.swift
+//  FestivalDetailModel.swift
 //  Organizer
 //
 //  Created by Nada Struharova on 6/6/23.
@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-class FestivalViewModel: ObservableObject {
+class FestivalDetailModel: ObservableObject {
     
     @Published var festival: Festival = Festival(id:0, centreLat: 0, centreLong: 0, height: 0, width: 0, stages: [:])
     
