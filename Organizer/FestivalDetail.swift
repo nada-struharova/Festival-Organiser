@@ -27,7 +27,7 @@ struct FestivalDetail {
 
 struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
-        FestivalView()
+        FestivalDetail()
             .body.environmentObject(FestivalDetailModel())
     }
 }
