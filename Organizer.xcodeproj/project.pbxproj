@@ -62,12 +62,9 @@
 		F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalDetailModel.swift; sourceTree = "<group>"; };
 		F79DC4072A2F4F3A00DB0895 /* Festival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalDetail.swift; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalList.swift; sourceTree = "<group>"; };
 		F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDataService.swift; sourceTree = "<group>"; };
 		F79DC41E2A2F772000DB0895 /* FestivalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalRow.swift; sourceTree = "<group>"; };
-=======
->>>>>>> postgresDriver
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
