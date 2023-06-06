@@ -10,7 +10,7 @@ import CoreLocation
 
 class FestivalViewModel: ObservableObject {
     
-    @Published var festival: Festival = Festival(centreLat: 0, centreLong: 0, height: 0, width: 0, stages: [:])
+    @Published var festival: Festival = Festival(id:0, centreLat: 0, centreLong: 0, height: 0, width: 0, stages: [:])
     
     //calculate centre ?
     
