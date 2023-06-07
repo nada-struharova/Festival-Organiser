@@ -20,13 +20,17 @@ struct FestivalDetail: View {
         span: MKCoordinateSpan(latitudeDelta: 0.03,
                                longitudeDelta: 0.04))
     
+    init(festival: Festival) {
+        self.festival = festival
+        setRegion(CLLocationCoordinate2D(latitude: festival.centreLat, longitude: festival.centreLong))
+        print(region.center)
+    }
+    
     var body: some View {
         ZStack {
             Map(coordinateRegion: $region)
                 .ignoresSafeArea()
-                .onAppear {
-                    setRegion(CLLocationCoordinate2D(latitude: festival.centreLat, longitude: festival.centreLong))
-                }
+             
         }
     }
     

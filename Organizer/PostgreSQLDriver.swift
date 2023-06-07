@@ -15,7 +15,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
     private var connection: Connection?
     private var displayNamesCache: [Int : String]? = nil
     
-    private var userId = "1"
+    private var userId = "bjorna"
     
     override init() {
         var prefsSQL: NSDictionary?
@@ -175,7 +175,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             var festivalId: Int? = 0
             
             // Insert festival
-            let text0 = "INSERT INTO festivals (displayname, centre_lat, centre_long, height, width, userid) WHERE displayname = $1, centre_lat = $2, centre_long = $3, height = $4, width = $5; userid = $6"
+            let text0 = "INSERT INTO festivals (displayname, centre_lat, centre_long, height, width, userid) VALUES($1, $2, $3, $4, $5, $6)"
             let statement0 = try connection!.prepareStatement(text: text0)
             defer { statement0.close() }
             
@@ -192,12 +192,12 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             
             for row in cursor4 {
                 let columns = try row.get().columns
-                festivalId = try columns[1].int()
+                festivalId = try columns[0].int()
             }
             
             // Add festivals
             for (name, cord) in festival.stages {
-                let text1 = "INSERT INTO stages (festival, stage, lat, long) WHERE festival = $1, stage = $2, lat= $3, long = $4;"
+                let text1 = "INSERT INTO stages (festival, stage, lat, long) VALUES ($1, $2, $3, $4);"
                 let statement1 = try connection!.prepareStatement(text: text1)
                 defer { statement1.close() }
 
@@ -209,7 +209,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             // Add toilets
             for cord in festival.toilets ?? [] {
                 
-                let text2 = "INSERT INTO toilets (festival, lat, long) WHERE festival = $1, lat= $2, long = $3;"
+                let text2 = "INSERT INTO toilets (festival, lat, long) VALUES ($1, $2, $3);"
                 let statement2 = try connection!.prepareStatement(text: text2)
                 defer { statement2.close() }
                     
@@ -220,7 +220,7 @@ class PostgreSQLDriver : NSObject, DataBaseDriver {
             // Add waters
             for cord in festival.waters ?? [] {
        
-                let text3 = "INSERT INTO waters (festival, lat, long) WHERE festival = $1, lat= $2, long = $3;"
+                let text3 = "INSERT INTO waters (festival, lat, long) VALUES ($1, $2, $3);"
                 let statement3 = try connection!.prepareStatement(text: text3)
                 defer { statement3.close() }
                     
