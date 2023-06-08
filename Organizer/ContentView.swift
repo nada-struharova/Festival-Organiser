@@ -9,9 +9,12 @@ import MapKit
 
 struct ContentView: View {
     @StateObject private var viewModel = FestivalDataService()
+    @StateObject private var mapView = MapView()
     
     var body: some View {
-        FestivalList().environmentObject(viewModel)
+        FestivalList()
+            .environmentObject(viewModel)
+            .environmentObject(mapView)
     }
 }
 

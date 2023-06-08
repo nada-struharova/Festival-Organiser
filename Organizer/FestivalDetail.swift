@@ -7,16 +7,25 @@
 
 import SwiftUI
 import MapKit
+import CoreLocationUI
 
 struct FestivalDetail: View {
     
-    @State var festival: Festival
-    
     @EnvironmentObject private var festivalDB: FestivalDataService
     
+    @EnvironmentObject private var mapView: MapView
+    
+    @Binding var festival: Festival
+    
+    @State private(set) var pois = [PointOfInterest]()
+    
+    @State var selectedPlace: PointOfInterest?
+    
+    @State var region: MKCoordinateRegion
+    
     var body: some View {
-        ZStack {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.pois) { poi in
+        ZStack (alignment: .bottom) {
+            Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: pois) { poi in
                 MapAnnotation(coordinate: poi.coordinate) {
                     VStack {
                         Image(systemName: PointOfInterest.getIcon(poi: poi))
@@ -29,16 +38,23 @@ struct FestivalDetail: View {
                             .fixedSize()
                     }
                     .onTapGesture {
-                        viewModel.selectedPlace = poi
+                        selectedPlace = poi
                     }
                 }
                 
             }
-                .ignoresSafeArea()
-                .accentColor(Color(.systemPink))
-                .onAppear {
-                    viewModel.checkLocationServices()
-                }
+            .ignoresSafeArea()
+            .accentColor(Color(.systemPink))
+            // TODO: sort out user location
+            //                .onAppear {
+            //                    mapView.checkLocationServices()
+            //                }
+            
+            LocationButton(.currentLocation) {
+                print("Re-center to current user locaiton.")
+            }
+            .foregroundColor(.white)
+            .cornerRadius(8)
             
             VStack {
                 Spacer()
@@ -48,34 +64,44 @@ struct FestivalDetail: View {
                     
                     Button {
                         //create new POI
-                        viewModel.addPoi()
+                        let newPoi = PointOfInterest(name: "", type: POIType.Stage, latitude: region.center.latitude, longitude: region.center.longitude)
+                        pois.append(newPoi)
+                        festival.festivalAddPoi(poi: newPoi)
                     } label: {
                         Image(systemName: "plus")
                     }
                     .padding()
+                    .frame(width: 44, height: 44)
                     .background(.black.opacity(0.75))
                     .foregroundColor(.white)
                     .font(.title)
-                    .clipShape(Circle())
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
                     .padding(.trailing)
                 }
             }
         }
-        .sheet(item: $viewModel.selectedPlace) { poi in
+        .sheet(item: $selectedPlace) { poi in
             POIEditView(poi: poi) { newPoi in
-                viewModel.updatePoi(updatedPoi: newPoi)
-                // save()
-                    // loads data to database through viewModel
+                guard let selectedPlace = selectedPlace else { return }
+                
+                if let index = pois.firstIndex(of: selectedPlace) {
+                    pois[index] = newPoi
+                }
+                
+                festival.toPOI(pois: pois)
             }
-            
         }
     }
 }
 
 struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
-        // pass info of selected festival
-        FestivalDetail(festival: FestivalDataService().festivals[0])
-            .environmentObject(FestivalDataService().festivals[0])
+        let festival = FestivalDataService.example[0]
+        let pois = FestivalDataService.example[0].getPois()
+        let region = MKCoordinateRegion(center: FestivalDataService.example[0].centreCoordinate(), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.04))
+                               
+                               
+        FestivalDetail(festival: .constant(festival), pois: pois, region: region)
+            .environmentObject(FestivalDataService())
     }
 }

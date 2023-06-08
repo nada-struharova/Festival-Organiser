@@ -10,30 +10,11 @@ import MapKit
 
 
 @MainActor class FestivalDataService : ObservableObject {
-    
-    // pull festival data from postgres
-    
-    //    private var db: DataBaseDriver = PostgreSQLDriver()
-    //    @Published var festivals: [Festival] = []
-    //
-    //    init() {
-    //        self.festivals = db.getFestivalList().map { festID in return db.getFestival(festivalID: festID)}
-    //        self.pois = getPois()
-    //    }
-    
-    // Create constant variable with path (database) to always save new information to
-    // use database driver (make sure it uses encode)
-    // .completeFileProtection ??
-    // func save()
-    
-    
-//    func addStage(festival: Festival, name: String, location: CLLocationCoordinate2D) {
-//        festival.stages[name] = location
-//    }
 
-
-    // fake data to test UI List View
-    @Published var festivals: [Festival] = [
+    @Published var festivals: [Festival] = []
+    
+    // festival examples for preview testing
+    static let example: [Festival] = [
         Festival(id: 1,
                  displayName: "Leeds",
                  centreLat: 51.520627,

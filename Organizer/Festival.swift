@@ -46,4 +46,38 @@ struct Festival: Identifiable {
         
         return pois
     }
+    
+    mutating func toPOI(pois: [PointOfInterest]) {
+        stages = [:]
+        toilets = []
+        waters = []
+        
+        pois.forEach { poi in
+            switch poi.type {
+                
+            case .Stage:
+                stages[poi.name] = poi.coordinate
+            case .Toilet:
+                toilets?.append(poi.coordinate)
+            case .Water:
+                waters?.append(poi.coordinate)
+            case .Other:
+                print("Unidentified POI.")
+            }
+        }
+    }
+    
+    mutating func festivalAddPoi(poi: PointOfInterest) {
+        switch poi.type {
+            
+        case .Stage:
+            stages[poi.name] = poi.coordinate
+        case .Toilet:
+            toilets?.append(poi.coordinate)
+        case .Water:
+            waters?.append(poi.coordinate)
+        case .Other:
+            print("POI with unknown type.")
+        }
+    }
 }
