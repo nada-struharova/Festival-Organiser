@@ -10,35 +10,72 @@ import MapKit
 
 struct FestivalDetail: View {
     
-    var festival: Festival
+    @State var festival: Festival
     
-    @EnvironmentObject private var detailModel: FestivalDetailModel
-    
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 51.520627,
-                                       longitude: -0.101602),
-        span: MKCoordinateSpan(latitudeDelta: 0.03,
-                               longitudeDelta: 0.04))
+    @EnvironmentObject private var festivalDB: FestivalDataService
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $region)
-                .ignoresSafeArea()
-                .onAppear {
-                    setRegion(CLLocationCoordinate2D(latitude: festival.centreLat, longitude: festival.centreLong))
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, annotationItems: viewModel.pois) { poi in
+                MapAnnotation(coordinate: poi.coordinate) {
+                    VStack {
+                        Image(systemName: PointOfInterest.getIcon(poi: poi))
+                            .resizable()
+                            .foregroundColor(.red)
+                            .frame(width: 44, height: 44)
+                            .clipShape(Circle())
+                        
+                        Text(poi.name)
+                            .fixedSize()
+                    }
+                    .onTapGesture {
+                        viewModel.selectedPlace = poi
+                    }
                 }
+                
+            }
+                .ignoresSafeArea()
+                .accentColor(Color(.systemPink))
+                .onAppear {
+                    viewModel.checkLocationServices()
+                }
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        //create new POI
+                        viewModel.addPoi()
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .background(.black.opacity(0.75))
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .clipShape(Circle())
+                    .padding(.trailing)
+                }
+            }
         }
-    }
-    
-    func setRegion(_ coordinate: CLLocationCoordinate2D) {
-        region = MKCoordinateRegion(
-            center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.04))
+        .sheet(item: $viewModel.selectedPlace) { poi in
+            POIEditView(poi: poi) { newPoi in
+                viewModel.updatePoi(updatedPoi: newPoi)
+                // save()
+                    // loads data to database through viewModel
+            }
+            
+        }
     }
 }
 
-struct FestivalView_Previews: PreviewProvider {
+struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
-        FestivalDetail(festival: FestivalDataService().festivals[1])
-            .body.environmentObject(FestivalDetailModel())
+        // pass info of selected festival
+        FestivalDetail(festival: FestivalDataService().festivals[0])
+            .environmentObject(FestivalDataService().festivals[0])
     }
 }

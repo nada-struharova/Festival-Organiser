@@ -8,8 +8,10 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    @StateObject private var viewModel = FestivalDataService()
+    
     var body: some View {
-        FestivalList()
+        FestivalList().environmentObject(viewModel)
     }
 }
 

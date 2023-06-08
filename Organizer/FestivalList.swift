@@ -10,13 +10,13 @@ import SwiftUI
 
 struct FestivalList: View {
     
-    @EnvironmentObject private var db: FestivalDataService
+    @EnvironmentObject private var festivalDB: FestivalDataService
     
     var body : some View {
         NavigationView {
-            List(db.festivals) { fest in
+            List(festivalDB.festivals,  id: \.id) { fest in
                 NavigationLink {
-                    FestivalDetail(festival: fest)
+                    FestivalDetail(festival: fest).environmentObject(db)
                 } label: {
                     FestivalRow(festival: fest)
                 }

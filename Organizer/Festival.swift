@@ -18,4 +18,32 @@ struct Festival: Identifiable {
     var stages: [String : CLLocationCoordinate2D]
     var toilets: [CLLocationCoordinate2D]?
     var waters: [CLLocationCoordinate2D]?
+    
+    func centreCoordinate() -> CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: centreLat, longitude: centreLong)
+    }
+    
+    func getPois() -> [PointOfInterest] {
+        // map festival points of interest to map annotations
+        
+        var pois: [PointOfInterest] = []
+        
+        stages.forEach { name, coord in
+            pois.append(PointOfInterest(name: name, type: POIType.Stage, latitude: coord.latitude, longitude: coord.longitude))
+        }
+        
+        if let toilets = toilets {
+            toilets.forEach { coord in
+                pois.append(PointOfInterest(name: "WC", type: POIType.Toilet, latitude: coord.latitude, longitude: coord.longitude))
+            }
+        }
+        
+        if let waters = waters{
+            waters.forEach { coord in
+                pois.append(PointOfInterest(name: "Water", type: POIType.Water, latitude: coord.latitude, longitude: coord.longitude))
+            }
+        }
+        
+        return pois
+    }
 }

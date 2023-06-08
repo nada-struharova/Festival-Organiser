@@ -10,6 +10,7 @@
 		2B2B9A5B2A2F5F0300AE2336 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */; };
 		2B2B9A5E2A2F603700AE2336 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2B2B9A5D2A2F603700AE2336 /* PostgresClientKit */; };
 		2B2B9A602A2F60E200AE2336 /* DatabaseDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B9A5F2A2F60E200AE2336 /* DatabaseDriver.swift */; };
+		F72734732A31D06700D2D149 /* FestivalDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72734722A31D06700D2D149 /* FestivalDetailModel.swift */; };
 		F79DC3DD2A2F4F2600DB0895 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */; };
 		F79DC3DF2A2F4F2600DB0895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */; };
 		F79DC3E12A2F4F2700DB0895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79DC3E02A2F4F2700DB0895 /* Assets.xcassets */; };
@@ -17,7 +18,6 @@
 		F79DC3EE2A2F4F2700DB0895 /* OrganizerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3ED2A2F4F2700DB0895 /* OrganizerTests.swift */; };
 		F79DC3F82A2F4F2700DB0895 /* OrganizerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3F72A2F4F2700DB0895 /* OrganizerUITests.swift */; };
 		F79DC3FA2A2F4F2700DB0895 /* OrganizerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3F92A2F4F2700DB0895 /* OrganizerUITestsLaunchTests.swift */; };
-		F79DC4092A2F4F3A00DB0895 /* FestivalDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */; };
 		F79DC40C2A2F4F3A00DB0895 /* Festival.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4072A2F4F3A00DB0895 /* Festival.swift */; };
 		F79DC40F2A2F4F3A00DB0895 /* FestivalDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */; };
 		F79DC4132A2F6A3E00DB0895 /* FestivalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */; };
@@ -27,8 +27,11 @@
 		F79DC41F2A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4202A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
 		F79DC4212A2F772000DB0895 /* FestivalRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC41E2A2F772000DB0895 /* FestivalRow.swift */; };
+		F7E887FA2A309D8200E6D9A9 /* PointOfInterest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E887F92A309D8200E6D9A9 /* PointOfInterest.swift */; };
+		F7E887FE2A30D46000E6D9A9 /* POIEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E887FD2A30D46000E6D9A9 /* POIEditView.swift */; };
 		F7EB8C882A2FC53F002F2E0F /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */; };
 		F7EB8C892A2FC53F002F2E0F /* PrefsSQL.plist in Resources */ = {isa = PBXBuildFile; fileRef = F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */; };
+		F7EB8C8B2A3069E2002F2E0F /* FestivalCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7EB8C8A2A3069E2002F2E0F /* FestivalCreate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,7 @@
 /* Begin PBXFileReference section */
 		2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
 		2B2B9A5F2A2F60E200AE2336 /* DatabaseDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDriver.swift; sourceTree = "<group>"; };
+		F72734722A31D06700D2D149 /* FestivalDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDetailModel.swift; sourceTree = "<group>"; };
 		F79DC3D92A2F4F2600DB0895 /* Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
 		F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,13 +65,15 @@
 		F79DC3F32A2F4F2700DB0895 /* OrganizerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OrganizerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79DC3F72A2F4F2700DB0895 /* OrganizerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerUITests.swift; sourceTree = "<group>"; };
 		F79DC3F92A2F4F2700DB0895 /* OrganizerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalDetailModel.swift; sourceTree = "<group>"; };
 		F79DC4072A2F4F3A00DB0895 /* Festival.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Festival.swift; sourceTree = "<group>"; };
 		F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FestivalDetail.swift; sourceTree = "<group>"; };
 		F79DC4122A2F6A3E00DB0895 /* FestivalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalList.swift; sourceTree = "<group>"; };
 		F79DC4162A2F6AE500DB0895 /* FestivalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalDataService.swift; sourceTree = "<group>"; };
 		F79DC41E2A2F772000DB0895 /* FestivalRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalRow.swift; sourceTree = "<group>"; };
+		F7E887F92A309D8200E6D9A9 /* PointOfInterest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointOfInterest.swift; sourceTree = "<group>"; };
+		F7E887FD2A30D46000E6D9A9 /* POIEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POIEditView.swift; sourceTree = "<group>"; };
 		F7EB8C872A2FC53F002F2E0F /* PrefsSQL.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = PrefsSQL.plist; sourceTree = "<group>"; };
+		F7EB8C8A2A3069E2002F2E0F /* FestivalCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FestivalCreate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +132,10 @@
 				F79DC41E2A2F772000DB0895 /* FestivalRow.swift */,
 				F79DC4072A2F4F3A00DB0895 /* Festival.swift */,
 				F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */,
-				F79DC4062A2F4F3A00DB0895 /* FestivalDetailModel.swift */,
+				F7E887F92A309D8200E6D9A9 /* PointOfInterest.swift */,
+				F7E887FD2A30D46000E6D9A9 /* POIEditView.swift */,
+				F7EB8C8A2A3069E2002F2E0F /* FestivalCreate.swift */,
+				F72734722A31D06700D2D149 /* FestivalDetailModel.swift */,
 				F79DC3E02A2F4F2700DB0895 /* Assets.xcassets */,
 				F79DC3E22A2F4F2700DB0895 /* Preview Content */,
 				2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */,
@@ -299,14 +308,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F79DC4092A2F4F3A00DB0895 /* FestivalDetailModel.swift in Sources */,
+				F72734732A31D06700D2D149 /* FestivalDetailModel.swift in Sources */,
+				F7E887FA2A309D8200E6D9A9 /* PointOfInterest.swift in Sources */,
 				2B2B9A5B2A2F5F0300AE2336 /* PostgreSQLDriver.swift in Sources */,
 				2B2B9A602A2F60E200AE2336 /* DatabaseDriver.swift in Sources */,
 				F79DC3DF2A2F4F2600DB0895 /* ContentView.swift in Sources */,
 				F79DC41F2A2F772000DB0895 /* FestivalRow.swift in Sources */,
+				F7E887FE2A30D46000E6D9A9 /* POIEditView.swift in Sources */,
 				F79DC3DD2A2F4F2600DB0895 /* OrganizerApp.swift in Sources */,
 				F79DC40F2A2F4F3A00DB0895 /* FestivalDetail.swift in Sources */,
 				F79DC4132A2F6A3E00DB0895 /* FestivalList.swift in Sources */,
+				F7EB8C8B2A3069E2002F2E0F /* FestivalCreate.swift in Sources */,
 				F79DC4172A2F6AE500DB0895 /* FestivalDataService.swift in Sources */,
 				F79DC40C2A2F4F3A00DB0895 /* Festival.swift in Sources */,
 			);
@@ -474,6 +486,7 @@
 				DEVELOPMENT_TEAM = T63HK34WJX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to help you set accurate locations of the attractions at your festival.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -503,6 +516,7 @@
 				DEVELOPMENT_TEAM = T63HK34WJX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to help you set accurate locations of the attractions at your festival.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
