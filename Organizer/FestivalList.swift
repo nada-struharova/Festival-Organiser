@@ -43,6 +43,12 @@ struct FestivalList: View {
                 
                 Button("Add Festival") {
                     // TODO: centre new festival at user location
+                    let driver: DataBaseDriver = PostgreSQLDriver()
+                    driver.connect()
+                    // driver.addFestival()
+                    driver.close()
+                    
+                    //TODO: add festival with correct ID, centre and dimensions
                     festivalDB.festivals.append(
                         Festival(id: festivalDB.festivals.count + 1,
                                  displayName: newName,

@@ -12,15 +12,12 @@ import CoreLocationUI
 struct FestivalDetail: View {
     
     @EnvironmentObject private var festivalDB: FestivalDataService
-    
     @EnvironmentObject private var mapView: MapView
     
     @Binding var festival: Festival
     
     @State private(set) var pois = [PointOfInterest]()
-    
     @State var selectedPlace: PointOfInterest?
-    
     @State var region: MKCoordinateRegion
     
     var body: some View {
@@ -46,9 +43,9 @@ struct FestivalDetail: View {
             .ignoresSafeArea()
             .accentColor(Color(.systemPink))
             // TODO: sort out user location
-            //                .onAppear {
-            //                    mapView.checkLocationServices()
-            //                }
+//            .onAppear {
+//                mapView.checkLocationServices()
+//            }
             
             LocationButton(.currentLocation) {
                 print("Re-center to current user locaiton.")
