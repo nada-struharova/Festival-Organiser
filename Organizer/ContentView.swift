@@ -8,7 +8,13 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    @StateObject private var viewModel = FestivalDataService()
+    @StateObject private var mapView = MapView()
+    
     var body: some View {
+        FestivalList()
+            .environmentObject(viewModel)
+            .environmentObject(mapView)
         VStack {
             FestivalList()
             Button("+ Add Festival") {

@@ -7,42 +7,101 @@
 
 import SwiftUI
 import MapKit
+import CoreLocationUI
 
 struct FestivalDetail: View {
     
-    var festival: Festival
+    @EnvironmentObject private var festivalDB: FestivalDataService
     
-    @EnvironmentObject private var detailModel: FestivalDetailModel
+    @EnvironmentObject private var mapView: MapView
     
-    @State private var region = MKCoordinateRegion(
-        center: CLLocationCoordinate2D(latitude: 51.520627,
-                                       longitude: -0.101602),
-        span: MKCoordinateSpan(latitudeDelta: 0.03,
-                               longitudeDelta: 0.04))
+    @Binding var festival: Festival
     
-    init(festival: Festival) {
-        self.festival = festival
-        setRegion(CLLocationCoordinate2D(latitude: festival.centreLat, longitude: festival.centreLong))
-        print(region.center)
-    }
+    @State private(set) var pois = [PointOfInterest]()
+    
+    @State var selectedPlace: PointOfInterest?
+    
+    @State var region: MKCoordinateRegion
     
     var body: some View {
-        ZStack {
-            Map(coordinateRegion: $region)
-                .ignoresSafeArea()
-             
+        ZStack (alignment: .bottom) {
+            Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: pois) { poi in
+                MapAnnotation(coordinate: poi.coordinate) {
+                    VStack {
+                        Image(systemName: PointOfInterest.getIcon(poi: poi))
+                            .resizable()
+                            .foregroundColor(.red)
+                            .frame(width: 44, height: 44)
+                            .clipShape(Circle())
+                        
+                        Text(poi.name)
+                            .fixedSize()
+                    }
+                    .onTapGesture {
+                        selectedPlace = poi
+                    }
+                }
+                
+            }
+            .ignoresSafeArea()
+            .accentColor(Color(.systemPink))
+            // TODO: sort out user location
+            //                .onAppear {
+            //                    mapView.checkLocationServices()
+            //                }
+            
+            LocationButton(.currentLocation) {
+                print("Re-center to current user locaiton.")
+            }
+            .foregroundColor(.white)
+            .cornerRadius(8)
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    
+                    Button {
+                        //create new POI
+                        let newPoi = PointOfInterest(name: "", type: POIType.Stage, latitude: region.center.latitude, longitude: region.center.longitude)
+                        pois.append(newPoi)
+                        festival.festivalAddPoi(poi: newPoi)
+                    } label: {
+                        Image(systemName: "plus")
+                    }
+                    .padding()
+                    .frame(width: 44, height: 44)
+                    .background(.black.opacity(0.75))
+                    .foregroundColor(.white)
+                    .font(.title)
+                    .clipShape(RoundedRectangle(cornerRadius: 8))
+                    .padding(.trailing)
+                }
+            }
         }
-    }
-    
-    func setRegion(_ coordinate: CLLocationCoordinate2D) {
-        region = MKCoordinateRegion(
-            center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.04))
+        .sheet(item: $selectedPlace) { poi in
+            POIEditView(poi: poi) { newPoi in
+                guard let selectedPlace = selectedPlace else { return }
+                
+                if let index = pois.firstIndex(of: selectedPlace) {
+                    pois[index] = newPoi
+                }
+                
+                festival.toPOI(pois: pois)
+            }
+        }
     }
 }
 
-struct FestivalView_Previews: PreviewProvider {
+struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
-        FestivalDetail(festival: FestivalDataService().festivals[1])
-            .body.environmentObject(FestivalDetailModel())
+        let festival = FestivalDataService.example[0]
+        let pois = FestivalDataService.example[0].getPois()
+        let region = MKCoordinateRegion(center: FestivalDataService.example[0].centreCoordinate(), span: MKCoordinateSpan(latitudeDelta: 0.03, longitudeDelta: 0.04))
+                               
+                               
+        FestivalDetail(festival: .constant(festival), pois: pois, region: region)
+            .environmentObject(FestivalDataService())
     }
 }
