@@ -21,7 +21,7 @@ struct FestivalDetail: View {
     @State var region: MKCoordinateRegion
     
     var body: some View {
-        ZStack (alignment: .bottom) {
+        ZStack {
             Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: pois) { poi in
                 MapAnnotation(coordinate: poi.coordinate) {
                     VStack {
@@ -47,16 +47,37 @@ struct FestivalDetail: View {
 //                mapView.checkLocationServices()
 //            }
             
-            LocationButton(.currentLocation) {
-                print("Re-center to current user locaiton.")
+            VStack {
+                HStack {
+                    Spacer()
+                    
+                    Button("Save") {
+                        print("Save festival to database")
+                        let driver: DataBaseDriver = PostgreSQLDriver()
+                        
+                        festival.centreLat = region.center.latitude
+                        festival.centreLong = region.center.longitude
+                        festival.height = region.span.latitudeDelta
+                        festival.width = region.span.longitudeDelta
+                        
+                        driver.connect()
+                        driver.addFestival(festival: festival)
+                        driver.close()
+                    }
+                    .padding()
+                    .frame(width: 100, height: 44)
+                    .buttonStyle(.borderedProminent)
+                    .foregroundColor(.white)
+                }
+                
+                Spacer()
             }
-            .foregroundColor(.white)
-            .cornerRadius(8)
             
             VStack {
+                
                 Spacer()
                 
-                HStack {
+                HStack (alignment: .bottom) {
                     Spacer()
                     
                     Button {
