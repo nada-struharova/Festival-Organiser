@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import MapKit
 
 struct Festival: Identifiable {
     var id: Int
@@ -79,5 +80,9 @@ struct Festival: Identifiable {
         case .Other:
             print("POI with unknown type.")
         }
+    }
+    
+    func getRegion() -> MKCoordinateRegion {
+        return MKCoordinateRegion(center: centreCoordinate(), span: MapDetails.defaultSpan)
     }
 }

@@ -8,16 +8,12 @@
 import SwiftUI
 
 @main
-struct OrganizerAppApp: App {
-    
-    @StateObject var dataModel = FestivalDataService()
-    
+struct OrganizerApp: App {
     @Environment (\.scenePhase) var scenePhase
     
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(dataModel)
         }
     }
 }

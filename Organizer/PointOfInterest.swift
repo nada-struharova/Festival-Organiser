@@ -7,6 +7,7 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
 
 struct PointOfInterest: Identifiable, Equatable, Codable {
     var id = UUID()
@@ -33,6 +34,20 @@ struct PointOfInterest: Identifiable, Equatable, Codable {
             return "drop.circle.fill"
         default:
             return "mappin.circle.fill"
+        }
+    }
+    
+    static func getColor(poi: PointOfInterest) -> Color {
+        // TODO: Use Colors from user app
+        switch poi.type {
+        case POIType.Stage:
+            return Color.red
+        case POIType.Toilet:
+            return Color.black
+        case POIType.Water:
+            return Color.blue
+        default:
+            return Color.purple
         }
     }
     

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct POIEditView: View {
     @Environment(\.dismiss) var dismiss

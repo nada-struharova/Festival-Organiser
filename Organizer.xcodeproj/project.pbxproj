@@ -10,7 +10,7 @@
 		2B2B9A5B2A2F5F0300AE2336 /* PostgreSQLDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */; };
 		2B2B9A5E2A2F603700AE2336 /* PostgresClientKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2B2B9A5D2A2F603700AE2336 /* PostgresClientKit */; };
 		2B2B9A602A2F60E200AE2336 /* DatabaseDriver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2B9A5F2A2F60E200AE2336 /* DatabaseDriver.swift */; };
-		F72734732A31D06700D2D149 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72734722A31D06700D2D149 /* MapView.swift */; };
+		F72734732A31D06700D2D149 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F72734722A31D06700D2D149 /* LocationManager.swift */; };
 		F79DC3DD2A2F4F2600DB0895 /* OrganizerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */; };
 		F79DC3DF2A2F4F2600DB0895 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */; };
 		F79DC3E12A2F4F2700DB0895 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F79DC3E02A2F4F2700DB0895 /* Assets.xcassets */; };
@@ -53,7 +53,7 @@
 /* Begin PBXFileReference section */
 		2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostgreSQLDriver.swift; sourceTree = "<group>"; };
 		2B2B9A5F2A2F60E200AE2336 /* DatabaseDriver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseDriver.swift; sourceTree = "<group>"; };
-		F72734722A31D06700D2D149 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		F72734722A31D06700D2D149 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		F79DC3D92A2F4F2600DB0895 /* Organizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Organizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F79DC3DC2A2F4F2600DB0895 /* OrganizerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizerApp.swift; sourceTree = "<group>"; };
 		F79DC3DE2A2F4F2600DB0895 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				F79DC4082A2F4F3A00DB0895 /* FestivalDetail.swift */,
 				F7E887F92A309D8200E6D9A9 /* PointOfInterest.swift */,
 				F7E887FD2A30D46000E6D9A9 /* POIEditView.swift */,
-				F72734722A31D06700D2D149 /* MapView.swift */,
+				F72734722A31D06700D2D149 /* LocationManager.swift */,
 				F79DC3E02A2F4F2700DB0895 /* Assets.xcassets */,
 				F79DC3E22A2F4F2700DB0895 /* Preview Content */,
 				2B2B9A5A2A2F5F0300AE2336 /* PostgreSQLDriver.swift */,
@@ -305,7 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F72734732A31D06700D2D149 /* MapView.swift in Sources */,
+				F72734732A31D06700D2D149 /* LocationManager.swift in Sources */,
 				F7E887FA2A309D8200E6D9A9 /* PointOfInterest.swift in Sources */,
 				2B2B9A5B2A2F5F0300AE2336 /* PostgreSQLDriver.swift in Sources */,
 				2B2B9A602A2F60E200AE2336 /* DatabaseDriver.swift in Sources */,
@@ -482,7 +482,6 @@
 				DEVELOPMENT_TEAM = T63HK34WJX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to help you set accurate locations of the attractions at your festival.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -512,7 +511,6 @@
 				DEVELOPMENT_TEAM = T63HK34WJX;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app uses your location to help you set accurate locations of the attractions at your festival.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -12,6 +12,7 @@ class FestivalDataService : ObservableObject {
     var driver: DataBaseDriver
     var festivalIds: [Int]
     var allFestivals: [Festival]
+    
     @Published var festivals: [Festival] = []
     
     init() {
@@ -44,14 +45,14 @@ class FestivalDataService : ObservableObject {
                  height: 10,
                  width: 12,
                  stages: ["Stage 1" : CLLocationCoordinate2D(latitude: 51.520624, longitude: -0.101602),
-                          "Stage 2" : CLLocationCoordinate2D(latitude: 51.530000, longitude: -0.100000)],
+                          "Stage 2" : CLLocationCoordinate2D(latitude: 51.530000, longitude: -0.101000)],
                  toilets: [
                     CLLocationCoordinate2D(latitude: 51.423056, longitude: -0.101604),
                     CLLocationCoordinate2D(latitude: 51.627308, longitude: -0.101600)
                  ],
                  waters: [
                     CLLocationCoordinate2D(latitude: 51.521656, longitude: -0.101604),
-                    CLLocationCoordinate2D(latitude: 51.520628, longitude: -0.101600)]),
+                    CLLocationCoordinate2D(latitude: 51.520628, longitude: -0.103607)]),
         Festival(id: 2,
                  displayName: "Reading",
                  centreLat: 51.464487,
