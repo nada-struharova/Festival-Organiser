@@ -18,12 +18,12 @@ struct FestivalDetail: View {
     
     @State private(set) var pois: [PointOfInterest]
     @State var selectedPlace: PointOfInterest?
-    @State var region: MKCoordinateRegion
+    //@State var region: MKCoordinateRegion
     
     var body: some View {
         NavigationView {
             ZStack {
-                Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: pois) { poi in
+                Map(coordinateRegion: $locationManager.region, showsUserLocation: true, annotationItems: pois) { poi in
                     MapAnnotation(coordinate: poi.coordinate) {
                         VStack {
                             Image(systemName: PointOfInterest.getIcon(poi: poi))
@@ -44,14 +44,6 @@ struct FestivalDetail: View {
                 }
                 .ignoresSafeArea()
                 .accentColor(Color(.systemPink))
-                //            .onTapGesture {
-                //                // TODO: code for adding map annotation on long press
-                //                print("tapped")
-                //            }
-                //            .gesture(DragGesture())
-                //            .onLongPressGesture {
-                //                print("Here!")
-                //            }
                 
                 Circle()
                     .strokeBorder(Color.red, lineWidth: 4)
@@ -68,7 +60,7 @@ struct FestivalDetail: View {
                             print("Push festival to database")
                             let driver: DataBaseDriver = PostgreSQLDriver()
                             
-                            //let region = locationManager.region
+                            let region = locationManager.region
                             
                             festival.centreLat = region.center.latitude
                             festival.centreLong = region.center.longitude
@@ -111,7 +103,7 @@ struct FestivalDetail: View {
                         
                         Button {
                             //create new POI
-                            //let region = locationManager.region
+                            let region = locationManager.region
                             
                             let newPoi = PointOfInterest(name: "", type: POIType.Stage, latitude: region.center.latitude, longitude: region.center.longitude)
                             pois.append(newPoi)
@@ -143,8 +135,6 @@ struct FestivalDetail: View {
                 }
             }
         }
-        .navigationTitle(festival.displayName ?? "New Festival")
-        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -152,11 +142,12 @@ struct FestivalDetail_Previews: PreviewProvider {
     static var previews: some View {
         let festival = FestivalDataService.example[0]
         let pois = FestivalDataService.example[0].getPois()
-        let region = MapDetails.defaultRegion
+        //let region = MapDetails.defaultRegion
                                
         FestivalDetail(festival: .constant(festival),
-                       pois: pois,
-                       region: region)
+                       pois: pois
+                      // region: region
+        )
             .environmentObject(FestivalDataService())
             .environmentObject(LocationManager())
     }

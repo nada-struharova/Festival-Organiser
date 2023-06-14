@@ -73,8 +73,8 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
         print(error.localizedDescription)
     }
     
-    func setRegion(coord: CLLocationCoordinate2D) {
-        region.center = coord
-    }
+//    func setRegion(region: MKCoordinateRegion) {
+//        self.region = region
+//    }
 
 }

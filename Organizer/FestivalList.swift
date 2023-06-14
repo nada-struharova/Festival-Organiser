@@ -28,9 +28,12 @@ struct FestivalList: View {
                         NavigationLink {
                             FestivalDetail(
                                 festival: $festivalDB.festivals[index],
-                                pois: fest.getPois(),
-                                region: fest.getRegion()
+                                pois: fest.getPois()
                             )
+                            .onAppear {
+                                print("CHANGiNG REGION")
+                                locationManager.region = fest.getRegion()
+                            }
                         } label: {
                             FestivalRow(festival: fest)
                         }
@@ -62,8 +65,7 @@ struct FestivalList: View {
                     .navigationDestination(isPresented: $addingFestival) {
                         FestivalDetail(
                             festival: $festivalDB.festivals.last!,
-                            pois: festivalDB.festivals.last!.getPois(),
-                            region: locationManager.region)
+                            pois: festivalDB.festivals.last!.getPois())
                     }
                     
                 }
