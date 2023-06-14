@@ -12,6 +12,7 @@ struct POIEditView: View {
     @Environment(\.dismiss) var dismiss
     var poi: PointOfInterest
     var onSave: (PointOfInterest) -> Void
+    var onDelete: (PointOfInterest) -> Void
     
     @State private var name: String
     @State private var type: POIType
@@ -27,6 +28,17 @@ struct POIEditView: View {
                         Text("Water").tag(POIType.Water)
                         Text("Other").tag(POIType.Other)
                     }
+                }
+                
+                Section {
+                    Button(role: .destructive, action: {
+                        onDelete(poi)
+                        dismiss()
+                    }, label: {
+                        Text("Delete")
+                            .frame(maxWidth: .infinity)
+
+                    })
                 }
             }
             .navigationTitle("Location details:")
@@ -45,9 +57,10 @@ struct POIEditView: View {
         }
     }
     
-    init(poi: PointOfInterest, onSave: @escaping (PointOfInterest) -> Void) {
+    init(poi: PointOfInterest, onSave: @escaping (PointOfInterest) -> Void, onDelete: @escaping (PointOfInterest) -> Void) {
         self.poi = poi
         self.onSave = onSave
+        self.onDelete = onDelete
         
         _name = State(initialValue: poi.name)
         _type = State(initialValue: poi.type)
@@ -56,6 +69,9 @@ struct POIEditView: View {
 
 struct POIEditView_Previews: PreviewProvider {
     static var previews: some View {
-        POIEditView(poi: PointOfInterest.example) {_ in}
+        POIEditView(poi: PointOfInterest.example,
+                    onSave: {_ in},
+                    onDelete: {_ in}
+                    )
     }
 }

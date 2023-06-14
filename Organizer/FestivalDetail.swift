@@ -34,7 +34,7 @@ struct FestivalDetail: View {
                             
                             Text(poi.name)
                                 .fixedSize()
-                                .foregroundStyle(.red.gradient)
+                                .foregroundStyle(PointOfInterest.getColor(poi: poi).gradient)
                                 .bold()
                         }
                         .onTapGesture {
@@ -124,7 +124,8 @@ struct FestivalDetail: View {
                 }
             }
             .sheet(item: $selectedPlace) { poi in
-                POIEditView(poi: poi) { newPoi in
+                POIEditView(poi: poi,
+                            onSave: { newPoi in
                     guard let selectedPlace = selectedPlace else { return }
                     
                     if let index = pois.firstIndex(of: selectedPlace) {
@@ -132,7 +133,14 @@ struct FestivalDetail: View {
                     }
                     
                     festival.toPOI(pois: pois)
-                }
+                },
+                            onDelete: { toDelete in
+                    guard let selectedPlace = selectedPlace else { return }
+                    
+                    if let index = pois.firstIndex(of: selectedPlace) {
+                        pois.remove(at: index)
+                    }
+                })
             }
         }
     }
